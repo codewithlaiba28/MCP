@@ -1,0 +1,165 @@
+1. HTTP Request-Response Cycle
+
+Client request bhejta hai (browser ya app server ko message bhejti hai).
+
+Server request samajh ke jawab deta hai (data ya error bhejta hai).
+
+Ye process request aur response par based hota hai.
+
+2. HTTP Message Structure
+
+HTTP ka message 4 cheezon se mil ke banta hai:
+
+Start-line → batata hai kya karna hai ya kya result hai.
+
+Headers → extra maloomat hoti hai (jaise content type, cookies).
+
+Blank line → headers aur body ko alag karta hai.
+
+Body → actual data hota hai (HTML, JSON, image, etc).
+
+3. Common HTTP Methods
+
+Ye batate hain ke resource ke sath kya action karna hai:
+
+GET → sirf data mangna.
+
+POST → new data bhejna ya create karna.
+
+PUT → purana data replace karna.
+
+DELETE → data hatana.
+
+HEAD → sirf headers lena, body nahi.
+
+OPTIONS → server se poochna ke kya actions allowed hain.
+
+PATCH → data ka sirf ek hissa update karna.
+
+4. HTTP Status Codes
+
+Server ka jawab hota hai, jisme bataya jata hai ke request ka kya result hua:
+
+1xx → process chal raha hai.
+
+2xx → sab theek, request successful (e.g. 200).
+
+3xx → redirect ya dusri jagah bhejna.
+
+4xx → client ki ghalti (e.g. 404).
+
+5xx → server ki ghalti (e.g. 500).
+
+5. Statelessness
+
+HTTP mein server purani requests ya user ko yaad nahi rakhta. Har request alag treat hoti hai.
+Agar user ka data ya session yaad rakhna ho to cookies, tokens ya sessions use karte hain.
+
+6. HTTP Headers
+
+Headers wo info hoti hai jo request ya response ke sath jati hai:
+
+General headers → dono taraf ke liye common (e.g. Date).
+
+Request headers → jo client bhejta hai (e.g. User-Agent).
+
+Response headers → jo server bhejta hai (e.g. Set-Cookie).
+
+Entity/Representation headers → body ke bare mein batate hain (e.g. Content-Length).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+✅ REST ke 6 Rules (Constraints)
+
+REST aik design style hai jo APIs ko fast, simple aur scalable banata hai. Iske 6 main rules hain:
+
+1️⃣ Client-Server Architecture
+
+Client alag hota hai (jo user interface handle karta hai).
+
+Server alag hota hai (jo data, security aur logic handle karta hai).
+
+Dono alag-alag develop ho sakte hain jab tak unka connection (API) same rehta hai.
+
+2️⃣ Stateless
+
+Har request mein puri info honi chahiye.
+
+Server kisi user ka purana data ya session yaad nahi rakhta.
+
+Agar koi request aaye to server usko akelay samajh sakta ho.
+
+Fayde:
+– Scalability barhta hai
+– Recovery asaan hoti hai
+– Monitoring easy hai
+
+3️⃣ Cacheable
+
+Server batata hai ke response cache ho sakta hai ya nahi.
+
+Agar cacheable ho to client ya CDN usko dubara use kar sakte hain bina server ko pareshaan kiye.
+
+Fayde:
+– Speed barhti hai
+– Network load kam hota hai
+– Server ka pressure kam hota hai
+
+4️⃣ Layered System
+
+System layers mein bana hota hai (jaise proxy, load balancer, API gateway).
+
+Client nahi samajhta ke wo direct server se baat kar raha hai ya kisi beech ke layer se.
+
+Fayde:
+– Scalability strong hoti hai
+– Security aur load control aasaan hota hai
+
+5️⃣ Code on Demand (Optional)
+
+Server kabhi-kabhi client ko chhota sa code bhej sakta hai (e.g. JavaScript) taake uska kaam barh jaye.
+
+Yeh rule optional hai, zaroori nahi use karna.
+
+6️⃣ Uniform Interface
+
+Yeh REST ka sabse important part hai. Iske 4 hisay hain:
+
+🔹 a) Identification of Resources
+
+Har cheez (user, product, article) ka aik unique URL hota hai.
+
+🔹 b) Resource Manipulation Through Representations
+
+Client resource ko JSON, XML ya kisi aur format ke zariye read/update/delete karta hai.
+
+🔹 c) Self-Descriptive Messages
+
+Har request/response mein itni info hoti hai ke samajh aaye ke kya ho raha hai:
+
+URL
+
+HTTP method (GET, POST, etc)
+
+Headers (e.g., Content-Type, Accept)
+
+Body (agar zarurat ho)
+
+🔹 d) HATEOAS (Hypermedia)
+
+Server client ko links deta hai further steps ke liye.
+
+Client ko pehle se sab URLs ya routes yaad nahi rakhne padte.
