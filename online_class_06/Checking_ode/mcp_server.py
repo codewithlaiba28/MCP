@@ -61,6 +61,14 @@ def get_doc(doc_id: str) -> str:
 
 # TODO: Write a prompt to rewrite a doc in markdown format
 # TODO: Write a prompt to summarize a doc
-
+@mcp.prompt(
+    name="summarize_document",
+    description="Summarize the contents of a document in a concise manner."
+)
+def summarize_document(
+    doc_contents: str = Field(description="The full contents of the document to summarize.")
+) -> str:
+    # Simple summarization by returning the first 50 characters
+    return doc_contents[:50] + "..." if len(doc_contents) > 50 else doc_contents
 
 mcp_app = mcp.streamable_http_app()
