@@ -17,5 +17,4 @@ def hello(data):
     return data
 
 print(hello("Hello world!\n"))
-
 print(hello("This is a test message.")) 
